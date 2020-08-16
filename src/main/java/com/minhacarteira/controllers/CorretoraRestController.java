@@ -1,5 +1,7 @@
 package com.minhacarteira.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -19,7 +21,7 @@ import com.minhacarteira.services.CorretoraService;
 
 @RestController
 @RequestMapping("corretoras")
-public class CorretoraController implements IRestController<Corretora> {
+public class CorretoraRestController implements IRestController<Corretora> {
 
 	@Autowired
 	private CorretoraService service;
@@ -50,14 +52,14 @@ public class CorretoraController implements IRestController<Corretora> {
 
 	@GetMapping("{id}")
 	@Override
-	public ResponseEntity<Response<Corretora>> findById(@PathVariable("id") Integer id) {
+	public Corretora findById(@PathVariable("id") Corretora corretora) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@GetMapping
 	@Override
-	public ResponseEntity<Response<Corretora>> findAll() {
+	public List<Corretora> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

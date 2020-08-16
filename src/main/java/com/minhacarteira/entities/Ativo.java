@@ -2,6 +2,7 @@ package com.minhacarteira.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -25,15 +27,15 @@ public class Ativo implements Serializable{
 	@SequenceGenerator(name = "ativo_sequence", sequenceName = "ativo_sequence")
 	private Integer id;
 	
-	@Size(max = 50)
+	@Size(max = 50, message = "Nome inválido")
 	private String nome;
 	
-	@NotNull
-	@NotEmpty
-	@Size(max = 10)
+	@Column(unique = true)
+	@NotEmpty(message = "O Código é obrigatório")
+	@Size(max = 10, message = "O Código deve ter no máximo 10 caracteres")
 	private String codigo;
 	
-	@NotNull
+	@NotNull(message = "O Tipo é obrigatório")
 	@Enumerated(EnumType.STRING)
 	private TipoAtivo tipo;
 

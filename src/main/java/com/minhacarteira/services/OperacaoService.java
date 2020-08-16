@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
 
 import com.minhacarteira.entities.Operacao;
 import com.minhacarteira.exceptions.MinhaCarteiraException;
@@ -17,21 +16,19 @@ public class OperacaoService implements IService<Operacao>{
 	private OperacaoRepository repository;
 
 	@Override
-	public Operacao save(Operacao t, BindingResult result) throws MinhaCarteiraException {
+	public Operacao save(Operacao t) throws MinhaCarteiraException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Operacao update(Operacao t, BindingResult result) throws MinhaCarteiraException {
+	public Operacao update(Operacao t) throws MinhaCarteiraException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Operacao remove(Operacao operacao) throws MinhaCarteiraException {
-		// TODO Auto-generated method stub
-		return null;
+	public void remove(Operacao operacao) throws MinhaCarteiraException {
 	}
 
 	@Override
