@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -21,8 +20,7 @@ public class Corretora implements Serializable{
 	@SequenceGenerator(name = "corretora_sequence", sequenceName = "corretora_sequence")
 	private Integer id;
 	
-	@NotNull
-	@NotEmpty
+	@NotEmpty(message = "O Nome é obrigatório")
 	@Size(max = 50)
 	private String nome;
 
